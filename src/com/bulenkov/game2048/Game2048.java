@@ -36,6 +36,7 @@ public class Game2048 extends JPanel {
   private Tile[] myTiles;
   boolean myWin = false;
   boolean myLose = false;
+  int myScore = 0;
 
   public Game2048() {
     setFocusable(true);
@@ -73,6 +74,7 @@ public class Game2048 extends JPanel {
   }
 
   public void resetGame() {
+    myScore = 0;
     myWin = false;
     myLose = false;
     myTiles = new Tile[4 * 4];
@@ -219,6 +221,7 @@ public class Game2048 extends JPanel {
       int num = oldLine[i].value;
       if (i < 3 && oldLine[i].value == oldLine[i + 1].value) {
         num *= 2;
+        myScore += num;
         int ourTarget = 2048;
         if (num == ourTarget) {
           myWin = true;
@@ -303,9 +306,12 @@ public class Game2048 extends JPanel {
       if (myWin || myLose) {
         g.setFont(new Font(FONT_NAME, Font.PLAIN, 16));
         g.setColor(new Color(128, 128, 128, 128));
-        g.drawString("Press ESC to play again", 80, getHeight() - 20);
+        g.drawString("Press ESC to play again", 80, getHeight() - 40);
       }
     }
+    g.setFont(new Font(FONT_NAME, Font.PLAIN, 18));
+    g.drawString("Score: " + myScore, 200, 365);
+
   }
 
   private static int offsetCoors(int arg) {
