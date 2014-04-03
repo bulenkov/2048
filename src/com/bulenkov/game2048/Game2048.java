@@ -128,7 +128,7 @@ public class Game2048 extends JPanel {
     if (!availableSpace().isEmpty()) {
       int index = (int) (Math.random() * list.size()) % list.size();
       Tile emptyTime = list.get(index);
-      emptyTime.value = 2;
+      emptyTime.value = Math.random() < 0.9 ? 2 : 4;
     }
   }
 
