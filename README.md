@@ -1,4 +1,3 @@
-2048
+Java implementation of 2048
 ====
-
-Java implamentation of 2048
+<img src="2048.png" width="50%" height="50%"/>
