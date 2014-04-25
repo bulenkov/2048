@@ -67,6 +67,10 @@ public class Game2048 extends JPanel {
           }
         }
 
+        if (!myWin && !canMove()) {
+          myLose = true;
+        }
+
         repaint();
       }
     });
@@ -150,10 +154,11 @@ public class Game2048 extends JPanel {
     if (!isFull()) {
       return true;
     }
-    for (int x = 0; x < 3; x++) {
-      for (int y = 0; y < 3; y++) {
+    for (int x = 0; x < 4; x++) {
+      for (int y = 0; y < 4; y++) {
         Tile t = tileAt(x, y);
-        if (t.value == tileAt(x + 1, y).value || t.value == tileAt(x, y + 1).value) {
+        if ((x < 3 && t.value == tileAt(x + 1, y).value)
+          || ((y < 3) && t.value == tileAt(x, y + 1).value)) {
           return true;
         }
       }
