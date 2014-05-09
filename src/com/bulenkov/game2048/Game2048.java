@@ -174,8 +174,9 @@ public class Game2048 extends JPanel {
     }
 
     for (int i = 0; i < line1.length; i++) {
-      if (!line1[i].equals(line2[i]))
+      if (line1[i].value != line2[i].value) {
         return false;
+      }
     }
     return true;
   }
