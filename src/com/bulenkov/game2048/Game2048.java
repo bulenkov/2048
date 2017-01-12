@@ -39,6 +39,7 @@ public class Game2048 extends JPanel {
   int myScore = 0;
 
   public Game2048() {
+    setPreferredSize(new Dimension(340, 400));
     setFocusable(true);
     addKeyListener(new KeyAdapter() {
       @Override
